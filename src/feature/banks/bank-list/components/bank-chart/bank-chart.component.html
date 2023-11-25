@@ -1,0 +1,16 @@
+<section class="bank-chart">
+  <ngx-charts-pie-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="sampleData"
+    [legend]="showLegend"
+    [explodeSlices]="explodeSlices"
+    [labels]="showLabels"
+    [doughnut]="doughnut"
+    [gradient]="gradient"
+  >
+    <ng-template #tooltipTemplate let-model="model">
+      <p>{{ model.value | number }}円</p>
+    </ng-template>
+  </ngx-charts-pie-chart>
+</section>

@@ -1,0 +1,16 @@
+<div class="fixed-cost-register-form">
+  <p class="title">固定費登録</p>
+  <form [formGroup]="fixedCostForm" class="input-area">
+    <div class="input-line">
+      <label>固定費名</label>
+      <input type="text" formControlName="name" required />
+    </div>
+    <div class="input-line">
+      <label>出費</label>
+      <input type="number" formControlName="expose" required />
+    </div>
+    <button (click)="passFixedCostInfo()" type="button" class="input-button">
+      追加
+    </button>
+  </form>
+</div>

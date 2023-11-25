@@ -1,0 +1,36 @@
+<div class="bank-register-form">
+  <p class="title">銀行作成</p>
+  <form [formGroup]="bankForm" class="input-area">
+    <div class="input-line">
+      <label>銀行名</label>
+      <input type="text" formControlName="name" required />
+    </div>
+    <div class="input-line">
+      <label>銀行コード</label>
+      <input type="text" formControlName="code" />
+    </div>
+    <div class="input-line">
+      <label>支店名</label>
+      <input type="text" formControlName="branchName" />
+    </div>
+    <div class="input-line">
+      <label>支店番号</label>
+      <input type="number" formControlName="branchNumber" />
+    </div>
+    <div class="input-line">
+      <label>口座番号</label>
+      <input type="number" formControlName="accountNumber" />
+    </div>
+    <div class="input-line">
+      <label>総資資産額</label>
+      <input type="number" formControlName="totalAmount" />
+    </div>
+    <div class="input-line">
+      <label>使用用途</label>
+      <input type="text" formControlName="categoryName" />
+    </div>
+    <button (click)="passBankInfo()" type="button" class="input-button">
+      追加
+    </button>
+  </form>
+</div>

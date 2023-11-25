@@ -1,0 +1,36 @@
+<section>
+  <!-- 通常表示 -->
+  <ng-container *ngIf="fixedCostList$ | async as fixedCostList; else loading">
+    <div class="fixed-cost-list-area">
+      <div class="title-box">
+        <p class="title">固定費一覧</p>
+        <a class="add-bank-button">固定費を追加する</a>
+      </div>
+      <table class="fixed-cost-table" border="1">
+        <tr>
+          <th>固定費名</th>
+          <th>費用</th>
+          <th>支払日</th>
+        </tr>
+        <tr *ngFor="let fixedCost of fixedCostList">
+          <td>
+            {{ fixedCost.name }}
+          </td>
+          <td>{{ fixedCost.expose | number }} 円</td>
+          <td>月末</td>
+        </tr>
+      </table>
+      <p class="total-amount" *ngIf="totalAmount$ | async as totalAmount">
+        合計金額: {{ totalAmount | number }} 円
+      </p>
+    </div>
+  </ng-container>
+  <!-- ローディング表示 -->
+  <ng-template #loading>Loading...</ng-template>
+  <!-- ローディング表示 -->
+  <!-- エラー表示 -->
+  <ng-container *ngIf="errorMessage$ | async as errorMessage">
+    <p>{{ errorMessage }}</p>
+  </ng-container>
+  <!-- エラー表示 -->
+</section>

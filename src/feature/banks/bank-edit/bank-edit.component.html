@@ -1,0 +1,8 @@
+<section class="bank-edit">
+  <app-bank-register-form (onClick)="onEditBank($event)" [bankForm]="bankForm">
+  </app-bank-register-form>
+  <!-- エラー表示 -->
+  <ng-container *ngIf="message$ | async as message">
+    {{ message }}
+  </ng-container>
+</section>

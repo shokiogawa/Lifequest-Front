@@ -1,0 +1,16 @@
+<section class="bank-list">
+  <!-- 正常時表示 -->
+  <ng-container *ngIf="state$ | async as banks; else loading">
+    <app-bank-list-area
+      [banks]="banks"
+      (changeOrder)="changeBankListOrder($event)"
+    ></app-bank-list-area>
+    <app-bank-chart [banks]="banks.bank_list"></app-bank-chart>
+  </ng-container>
+  <!-- ローディング表示 -->
+  <ng-template #loading>Loading...</ng-template>
+  <!-- エラー表示 -->
+  <ng-container *ngIf="error$ | async as errorMessage">
+    <p>{{ errorMessage }}</p>
+  </ng-container>
+</section>

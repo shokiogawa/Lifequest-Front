@@ -1,0 +1,44 @@
+<div class="bank-list-area">
+  <div class="title-box">
+    <p class="title">登録済み金融機関</p>
+    <a routerLink="/bank-register" class="add-bank-button">
+      金融機関を追加する
+    </a>
+  </div>
+  <div class="bank-list-table">
+    <div class="bank-list" cdkDropList (cdkDropListDropped)="drop($event)">
+      <table border="1" width="400">
+        <tr>
+          <th>銀行名</th>
+          <th>総資産</th>
+          <th>使用用途</th>
+          <th>登録日</th>
+          <th>編集</th>
+          <th>削除</th>
+        </tr>
+        <tr class="bank-column" *ngFor="let bank of banks.bank_list" cdkDrag>
+          <td id="{{ bank.id }}" class="bank-name">
+            <a routerLink="/bank-list/{{ bank.name }}">{{ bank.name }}</a>
+          </td>
+          <td>
+            {{ bank.total_amount_string }}
+          </td>
+          <td>
+            {{ bank.category_name }}
+          </td>
+          <td>
+            {{ bank.created_at | date : "YYYY/MM/dd" }}
+          </td>
+          <td>
+            <button routerLink="/bank-edit/{{ bank.id }}">編集</button>
+          </td>
+          <td>
+            <button>削除</button>
+          </td>
+          <div *cdkDragPreview>{{ bank.name }}</div>
+        </tr>
+      </table>
+    </div>
+    <h2 class="total-amount">合計金額: {{ banks.total_amount_string }}</h2>
+  </div>
+</div>

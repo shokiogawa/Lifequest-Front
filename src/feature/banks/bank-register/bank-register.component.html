@@ -1,0 +1,17 @@
+<section class="bank-register">
+  <!-- 銀行作成フォーム -->
+  <app-bank-register-form (onClick)="onSaveBank($event)" [bankForm]="bankForm">
+  </app-bank-register-form>
+  <!-- エラーメッセージ -->
+  <ng-container *ngIf="errorMessage$ as errorMessage">
+    <p>
+      {{ errorMessage }}
+    </p>
+  </ng-container>
+  <!-- 成功メッセージ -->
+  <ng-container *ngIf="successMessage$ as successMessage">
+    <p>
+      {{ successMessage }}
+    </p>
+  </ng-container>
+</section>
